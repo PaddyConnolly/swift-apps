@@ -9,12 +9,25 @@
 import XCTest
 
 class TamagotchiTests: XCTestCase {
-
-    func testTamagotchiWithNoArgumentsReturnsNonNilObject() {
+    
+    func testTamagotchiReturnsNotNil() {
         //arrange
-        //act
         let tamagotchi = Tamagotchi()
+        //act
         //assert
         XCTAssertNotNil(tamagotchi)
+    }
+    
+    func testFuncFeedIncreasesHungerAndReturnsNewHungerForParameterMeal() {
+        //arrange
+        let tamagotchi = Tamagotchi()
+        let tamagotchi = Tamagotchi()
+        tamagotchi.hunger = 2
+        
+        let expected = 3
+        //act
+        let actual = tamagotchi.feed(food: "Meal")
+        //assert
+        XCTAssertEqual(expected,actual)
     }
 }
