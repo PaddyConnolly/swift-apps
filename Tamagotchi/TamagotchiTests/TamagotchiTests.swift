@@ -18,16 +18,70 @@ class TamagotchiTests: XCTestCase {
         XCTAssertNotNil(tamagotchi)
     }
     
-    func testFuncFeedIncreasesHungerAndReturnsNewHungerForParameterMeal() {
+    func testFuncFeedFillsHungerAndIncreasesWeightAndReturnsNewHungerForParameterMeal() {
         //arrange
         let tamagotchi = Tamagotchi()
-        let tamagotchi = Tamagotchi()
-        tamagotchi.hunger = 2
-        
-        let expected = 3
+        let expectedHunger = 4
+        let expectedWeight = 1
         //act
-        let actual = tamagotchi.feed(food: "Meal")
+        tamagotchi.feed(food: "Meal")
+        let actualHunger = tamagotchi.hunger
+        let actualWeight = tamagotchi.weight
         //assert
-        XCTAssertEqual(expected,actual)
+        XCTAssertEqual(expectedHunger,actualHunger)
+        XCTAssertEqual(expectedWeight,actualWeight)
+
     }
+
+    func testFuncFeedIncreasesHungerAndReturnsNewHungerForParameterSnack() {
+        //arrange
+        let tamagotchi = Tamagotchi()
+        let expectedHunger = 1
+        let expectedWeight = 2
+        let expectedHappy = 1
+        //act
+        tamagotchi.feed(food: "Snack")
+        let actualHunger = tamagotchi.hunger
+        let actualWeight = tamagotchi.weight
+        let actualHappy = tamagotchi.happy
+        //assert
+        XCTAssertEqual(expectedHunger,actualHunger)
+        XCTAssertEqual(expectedWeight,actualWeight)
+        XCTAssertEqual(expectedHappy,actualHappy)
+
+    }
+    
+    func testFuncFeedWithTooManySnacksKillsTamagotchi() {
+        //arrange
+        let tamagotchi = Tamagotchi()
+        tamagotchi.snackCount = 5
+        //act
+        tamagotchi.feed(food: "Snack")
+        //assert
+        XCTAssertTrue(tamagotchi.isDead)
+        
+    }
+    
+    func testFuncFeedWithTooManySnacksMakesTamagotchiSick() {
+        //arrange
+        let tamagotchi = Tamagotchi()
+        tamagotchi.snackCount = 3
+        //act
+        tamagotchi.feed(food: "Snack")
+        //assert
+        XCTAssertTrue(tamagotchi.isSick)
+    
+    }
+    
+    func testFuncPlayLowersWeightIfThreeRoundsWon() {
+        //arrange
+        let tamagotchi = Tamagotchi()
+        let expected = 1
+        let actual = tamagotchi.happy
+        //act
+        tamagotchi.play()
+        //assert
+        XCTAssertEqual(expected, actual)
+    }
+    
 }
