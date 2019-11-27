@@ -51,23 +51,26 @@ class Tamagotchi {
         var roundsWon = 0
         var finished = false
         repeat {
+            print("Round \(rounds+1)")
             var computerChoice = String(Int.random(in: 0...1))
             if computerChoice == "0" {
                 computerChoice = "Left"
             } else {
                 computerChoice = "Right"
             }
-            print(computerChoice)
+            print(computerChoice) // for testing only
             if let userChoice = readLine() {
                 if userChoice == computerChoice {
+                    print("Correct!")
                     roundsWon += 1
                     rounds += 1
                 } else {
+                    print("Incorrect")
                     rounds += 1
                     finished = true
                 }
             }
-        } while finished == false && rounds <= 5
+        } while finished == false && rounds < 5
         if roundsWon >= 3 {
             happy += 1
         }

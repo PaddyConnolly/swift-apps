@@ -22,7 +22,7 @@ class TamagotchiTests: XCTestCase {
         //arrange
         let tamagotchi = Tamagotchi()
         let expectedHunger = 4
-        let expectedWeight = 1
+        let expectedWeight = tamagotchi.weight + 1
         //act
         tamagotchi.feed(food: "Meal")
         let actualHunger = tamagotchi.hunger
@@ -36,9 +36,9 @@ class TamagotchiTests: XCTestCase {
     func testFuncFeedIncreasesHungerAndReturnsNewHungerForParameterSnack() {
         //arrange
         let tamagotchi = Tamagotchi()
-        let expectedHunger = 1
-        let expectedWeight = 2
-        let expectedHappy = 1
+        let expectedHunger = tamagotchi.hunger + 1
+        let expectedWeight = tamagotchi.weight + 2
+        let expectedHappy = tamagotchi.happy + 1
         //act
         tamagotchi.feed(food: "Snack")
         let actualHunger = tamagotchi.hunger
@@ -76,10 +76,10 @@ class TamagotchiTests: XCTestCase {
     func testFuncPlayLowersWeightIfThreeRoundsWon() {
         //arrange
         let tamagotchi = Tamagotchi()
-        let expected = 1
-        let actual = tamagotchi.happy
+        let expected = tamagotchi.happy + 1
         //act
         tamagotchi.play()
+        let actual = tamagotchi.happy
         //assert
         XCTAssertEqual(expected, actual)
     }
