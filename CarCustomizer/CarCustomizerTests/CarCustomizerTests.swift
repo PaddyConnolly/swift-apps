@@ -17,8 +17,8 @@ class CarCustomizerTests: XCTestCase {
         let expected = """
             Make: Mazda
             Model: MX-5
-            Top Speed: 125
-            Acceleration: 7.7
+            Top Speed (mph): 125
+            Acceleration (0-60): 7.7
             Handling: 5
         """
         //act
