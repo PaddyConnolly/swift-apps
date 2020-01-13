@@ -12,13 +12,33 @@ class ViewController: UIViewController {
     
     
     @IBOutlet weak var carstatistics: UILabel!
-    var car = Car(make: "Mazda", model: "MX-5", topSpeed: 125, acceleration: 7.7, handling: 5)
+
+    var starterCars = StarterCars()
+    var carIndex = 0
+    var car: Car? {
+        didSet {
+            carstatistics.text = car?.displayStats()
+        }
+    }
+    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        carstatistics.text = car.displayStats()
+        car = starterCars.cars[carIndex]
+        
     }
+    
+    @IBAction func cycleCars(_ sender: Any) {
+        carIndex += 1
+        if carIndex >= starterCars.cars.count {
+            carIndex = 0
+        }
+        car = starterCars.cars[carIndex]
+
+    }
+    
 
 
 }
