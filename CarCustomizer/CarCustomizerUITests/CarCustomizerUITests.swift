@@ -33,7 +33,6 @@ class CarCustomizerUITests: XCTestCase {
         app.switches["engineExhaustSwitch"].tap()
         app.switches["tiresSwitch"].tap()
 
-        
         //act
         app.buttons["cycleCarButton"].tap()
         
@@ -43,6 +42,21 @@ class CarCustomizerUITests: XCTestCase {
         XCTAssertTrue(app.switches["fuelSystemSwitch"].isEnabled)
         XCTAssertTrue(app.switches["drivetrainSwitch"].isEnabled)
     }
-
+    
+    func testEverythingDisabledWhenTimerEnds() {
+        //arrange
+        let app = XCUIApplication()
+        app.launch()
+        
+        //act
+        sleep(35)
+        
+        //assert
+        XCTAssertFalse(app.switches["engineExhaustSwitch"].isEnabled)
+        XCTAssertFalse(app.switches["tiresSwitch"].isEnabled)
+        XCTAssertFalse(app.switches["fuelSystemSwitch"].isEnabled)
+        XCTAssertFalse(app.switches["drivetrainSwitch"].isEnabled)
+        
+    }
 
 }
