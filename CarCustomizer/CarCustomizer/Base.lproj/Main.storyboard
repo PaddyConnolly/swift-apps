@@ -30,6 +30,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Csx-M7-bfE">
                                 <rect key="frame" x="29" y="164" width="67" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="cycleCarButton"/>
                                 <state key="normal" title="Cycle Car"/>
                                 <connections>
                                     <action selector="cycleCars:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eW2-O3-pQb"/>
@@ -38,6 +39,7 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Gdc-jX-ODy">
                                 <rect key="frame" x="347" y="226" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="engineExhaustSwitch"/>
                                 <connections>
                                     <action selector="engineAndExhaustToggle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9wB-O5-tiw"/>
                                 </connections>
@@ -45,6 +47,7 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ymE-YZ-VoY">
                                 <rect key="frame" x="347" y="275" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="tiresSwitch"/>
                                 <connections>
                                     <action selector="tiresPackageToggle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v6j-u5-8Fq"/>
                                 </connections>
@@ -80,6 +83,7 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TL9-CA-BWh">
                                 <rect key="frame" x="347" y="322" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="fuelSystemSwitch"/>
                                 <connections>
                                     <action selector="fuelSystemPackageToggle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oDX-0e-Bn4"/>
                                 </connections>
@@ -87,6 +91,7 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="J1R-hO-SHE">
                                 <rect key="frame" x="347" y="370" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="drivetrainSwitch"/>
                                 <connections>
                                     <action selector="drivetrainPackageToggle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DSB-Gf-x9W"/>
                                 </connections>

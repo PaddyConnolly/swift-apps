@@ -18,7 +18,7 @@ class CarCustomizerTests: XCTestCase {
             Make: Mazda
             Model: MX-5
             Top Speed (mph): 125
-            Acceleration (0-60): 7.7
+            Acceleration (0-60): 7.70
             Handling: 5
         """
         //act
