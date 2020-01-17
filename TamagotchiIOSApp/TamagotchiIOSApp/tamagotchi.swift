@@ -15,6 +15,7 @@ class Tamagotchi {
     var happy: Int = 3
     var isDead: Bool = false
     var isSick: Bool = false
+    var currentGame: Game?
     
     var snackCount: Int = 0
 
@@ -31,6 +32,8 @@ class Tamagotchi {
         
     }
     
+
+    
     func feed(food : String) {
         if snackCount >= 5 {
             die()
@@ -39,25 +42,25 @@ class Tamagotchi {
         }
         
         if food == "Meal" {
-            hunger = 4
-            weight += 1
-            snackCount = 0
+            if hunger == 4 {
+                return
+            } else {
+                hunger = 4
+                weight += 1
+                snackCount = 0
+            }
         } else if food == "Snack" {
-            hunger += 1
-            weight += 2
-            happy += 1
-            snackCount += 1
+            if hunger == 4 {
+                return
+            } else {
+                hunger += 1
+                weight += 2
+                happy += 1
+                snackCount += 1
+            }
         }
     }
-    
-    func die() {
-        isDead = true
-    }
-    
-    func sick() {
-        isSick = true
-    }
-    
+
     func play() {
         weight -= 1
         var rounds = 0
@@ -71,23 +74,34 @@ class Tamagotchi {
             } else {
                 computerChoice = "Right"
             }
-            print(computerChoice) // for testing only
-            if let userChoice = readLine() {
-                if userChoice == computerChoice {
-                    print("Correct!")
-                    roundsWon += 1
-                    rounds += 1
-                } else {
-                    print("Incorrect")
-                    rounds += 1
-                    finished = true
-                }
+            print("Choose either left or right, and if your Tamagotchi does the same, advance to the next round!")
+            if userChoice == computerChoice {
+                print("Correct!")
+                roundsWon += 1
+                rounds += 1
+            } else {
+                print("Incorrect")
+                rounds += 1
+                finished = true
             }
         } while finished == false && rounds < 5
         if roundsWon >= 3 {
             happy += 1
         }
-        
-        
     }
+    
+    func die() {
+        isDead = true
+    }
+    
+    func sick() {
+        isSick = true
+    }
+    
+
+    
+
+    
+    
 }
+
