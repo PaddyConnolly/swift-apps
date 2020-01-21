@@ -10,19 +10,20 @@ import Foundation
 
 class Tamagotchi {
     var name: String = "Tamagotchi"
-    var hunger: Int = 3
+    var age: Int = 0
+    var hunger: Int = 2
     var weight: Int = 25
-    var happy: Int = 3
+    var happy: Int = 2
     var isDead: Bool = false
     var isSick: Bool = false
     var currentGame: Game?
-    
     var snackCount: Int = 0
 
     
     func displayStartingStats() -> String {
         return """
         Name: \(name)
+        Age: \(age) years old
         Happiness: \(happy)/4
         Hunger: \(hunger)/4
         Weight: \(weight)lbs
@@ -31,8 +32,6 @@ class Tamagotchi {
         """
         
     }
-    
-
     
     func feed(food : String) {
         if snackCount >= 5 {
@@ -49,7 +48,7 @@ class Tamagotchi {
                 weight += 1
                 snackCount = 0
             }
-        } else if food == "Snack" {
+        } else {
             if hunger == 4 {
                 return
             } else {
@@ -62,40 +61,21 @@ class Tamagotchi {
     }
 
     func play() {
-        weight -= 1
-        var rounds = 0
-        var roundsWon = 0
-        var finished = false
-        repeat {
-            print("Round \(rounds+1)")
-            var computerChoice = String(Int.random(in: 0...1))
-            if computerChoice == "0" {
-                computerChoice = "Left"
-            } else {
-                computerChoice = "Right"
-            }
-            print("Choose either left or right, and if your Tamagotchi does the same, advance to the next round!")
-            if userChoice == computerChoice {
-                print("Correct!")
-                roundsWon += 1
-                rounds += 1
-            } else {
-                print("Incorrect")
-                rounds += 1
-                finished = true
-            }
-        } while finished == false && rounds < 5
-        if roundsWon >= 3 {
-            happy += 1
-        }
+        
+
     }
     
     func die() {
         isDead = true
     }
+
     
     func sick() {
         isSick = true
+    }
+    
+    func heal() {
+        isSick = false
     }
     
 
