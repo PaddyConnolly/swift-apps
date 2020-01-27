@@ -9,15 +9,16 @@
 import Foundation
 
 class Tamagotchi {
-    var name: String = "Tamagotchi"
+    var name: String = "Norman"
     var age: Int = 0
-    var hunger: Int = 2
+    var hunger: Int = 0 // Use 0 for demo
     var weight: Int = 25
-    var happy: Int = 2
+    var happy: Int = 0 // Use 0 for demo
     var isDead: Bool = false
     var isSick: Bool = false
     var currentGame: Game?
     var snackCount: Int = 0
+    var mealCount: Int = 0
 
     
     func displayStartingStats() -> String {
@@ -39,14 +40,24 @@ class Tamagotchi {
         } else if snackCount >= 3 {
             sick()
         }
+        if mealCount >= 2 {
+            
+        }
         
         if food == "Meal" {
             if hunger == 4 {
+                mealCount += 1
+        
                 return
             } else {
                 hunger = 4
                 weight += 1
                 snackCount = 0
+                if mealCount >= 2 {
+                    mealCount = 0
+                } else {
+                    mealCount += 1
+                }
             }
         } else {
             if hunger == 4 {
@@ -77,6 +88,8 @@ class Tamagotchi {
     func heal() {
         isSick = false
     }
+    
+
     
 
     
