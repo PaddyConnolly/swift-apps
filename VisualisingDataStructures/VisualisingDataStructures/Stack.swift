@@ -10,14 +10,34 @@ import Foundation
 
 class Stack {
     
+    var items: [Int]
+    var top = 0
     init(maxSize: Int) {
-        
+        items = Array(repeating: 0, count: maxSize)
     }
     
-    let items = [0] * maxSize
-    let maxSize: Int
-    var top = 0
+    func pop() -> Int? {
+        var empty = true
+        for item in items {
+            if item != 0 {
+                empty = false
+            }
+        }
+        if !empty {
+            top -= 1
+            let item = items[top]
+            items[top] = 0
+            return item
+        } else {
+            return nil
+        }}
     
-    fun
+    func push(item: Int) {
+        items[top] = item
+        top += 1
+    }
+    
+
+   
     
 }

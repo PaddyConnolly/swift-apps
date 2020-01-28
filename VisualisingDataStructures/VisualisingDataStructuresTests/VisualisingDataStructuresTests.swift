@@ -19,16 +19,54 @@ class VisualisingDataStructuresTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testInitializationCreatesArrayOfCorrectLength() {
+        //arrange
+        let stack = Stack(maxSize: 10)
+        //act
+        let actual = stack.items
+        let expected = Array(repeating: 0, count: 10)
+        //assert
+        XCTAssertEqual(expected, actual)
     }
+    
+    func testPushingToStacksAddsItemToStack() {
+        //arrange
+        let stack = Stack(maxSize: 10)
+        stack.push(item: 7)
+        //act
+        let actual = stack.items
+        let expected = [7,0,0,0,0,0,0,0,0,0]
+        //assert
+        XCTAssertEqual(actual, expected)
+    }
+    
+    func testPoppingFromStacksRemovesItemFromTopOfStack() {
+        //arrange
+        let stack = Stack(maxSize: 10)
+        stack.push(item: 7)
+        stack.push(item: 4)
+        stack.push(item: 3)
+        //act
+        let actual = stack.pop()
+        let expected = 3
+        //assert
+        XCTAssertEqual(actual, expected)
+    }
+    
+    func testPoppingFromEmptyStackReturnsNil() {
+        //arrange
+        let stack = Stack(maxSize: 10)
+        //act
+        let actual = stack.pop()
+        let expected: Int? = nil
+        //assert
+        XCTAssertEqual(actual, expected)
+    }
+    
+    
+    
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+
+    
 
 }

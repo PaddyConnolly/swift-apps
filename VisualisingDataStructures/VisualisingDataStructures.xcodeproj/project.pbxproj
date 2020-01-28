@@ -18,6 +18,9 @@
 		7B638FAF23E058EA00A24E01 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B638FAE23E058EA00A24E01 /* Stack.swift */; };
 		7B638FB123E058F400A24E01 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B638FB023E058F400A24E01 /* Queue.swift */; };
 		7B638FB323E058FF00A24E01 /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B638FB223E058FF00A24E01 /* LinkedList.swift */; };
+		7B638FB423E05DD500A24E01 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B638FAE23E058EA00A24E01 /* Stack.swift */; };
+		7B638FB523E05DD500A24E01 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B638FAE23E058EA00A24E01 /* Stack.swift */; };
+		7B638FB923E068E800A24E01 /* QueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B638FB823E068E800A24E01 /* QueueViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,7 @@
 		7B638FAE23E058EA00A24E01 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		7B638FB023E058F400A24E01 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		7B638FB223E058FF00A24E01 /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
+		7B638FB823E068E800A24E01 /* QueueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,7 @@
 				7B638FAE23E058EA00A24E01 /* Stack.swift */,
 				7B638FB023E058F400A24E01 /* Queue.swift */,
 				7B638FB223E058FF00A24E01 /* LinkedList.swift */,
+				7B638FB823E068E800A24E01 /* QueueViewController.swift */,
 			);
 			path = VisualisingDataStructures;
 			sourceTree = "<group>";
@@ -270,6 +275,7 @@
 			files = (
 				7B638FB323E058FF00A24E01 /* LinkedList.swift in Sources */,
 				7B638FB123E058F400A24E01 /* Queue.swift in Sources */,
+				7B638FB923E068E800A24E01 /* QueueViewController.swift in Sources */,
 				7B638FAF23E058EA00A24E01 /* Stack.swift in Sources */,
 				7B638F8323E058CD00A24E01 /* ViewController.swift in Sources */,
 				7B638F7F23E058CD00A24E01 /* AppDelegate.swift in Sources */,
@@ -281,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B638FB423E05DD500A24E01 /* Stack.swift in Sources */,
 				7B638F9623E058CF00A24E01 /* VisualisingDataStructuresTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B638FB523E05DD500A24E01 /* Stack.swift in Sources */,
 				7B638FA123E058CF00A24E01 /* VisualisingDataStructuresUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

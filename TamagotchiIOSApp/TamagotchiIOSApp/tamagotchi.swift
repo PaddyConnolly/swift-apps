@@ -15,7 +15,7 @@ class Tamagotchi {
     var weight: Int = 25
     var happy: Int = 0 // Use 0 for demo
     var isDead: Bool = false
-    var isSick: Bool = false
+    var isSick: Bool = true // Use true for demo
     var currentGame: Game?
     var snackCount: Int = 0
     var mealCount: Int = 0
