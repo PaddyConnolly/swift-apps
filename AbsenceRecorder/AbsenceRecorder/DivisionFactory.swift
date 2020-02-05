@@ -17,8 +17,8 @@ class DivisionFactory {
         let studentsSurnames = ["Goad", "Connolly", "Ahmed", "Barnham", "Andrew", "Hassall", "Wade"]
         let studentsBirthdays = ["01/01/2003", "02/02/2003", "03/03/2003", "04/04/2003", "05/05/2003", "06/06/2003", "07/07/2003"]
 
-        for _ in 1...size {
-            division.students.append(Student(forename: studentsForenames.randomElement()!, surname: studentsSurnames.randomElement()!, birthday: formatter.date(from: studentsBirthdays.randomElement()!)!))
+        for i in 0..<size {
+            division.students.append(Student(forename: studentsForenames[i], surname: studentsSurnames[i], birthday: formatter.date(from: studentsBirthdays[i])!))
         }
         
         return division

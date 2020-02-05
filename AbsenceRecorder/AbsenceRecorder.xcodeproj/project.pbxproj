@@ -18,6 +18,7 @@
 		7BC17D6723E357E800DD51CE /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC17D6623E357E800DD51CE /* Student.swift */; };
 		7BC17D6923E3586C00DD51CE /* Division.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC17D6823E3586C00DD51CE /* Division.swift */; };
 		7BC17D6B23E359B400DD51CE /* DivisionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC17D6A23E359B400DD51CE /* DivisionFactory.swift */; };
+		7BFCC74B23EB04F40076DC7C /* DivisionAbscenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFCC74A23EB04F40076DC7C /* DivisionAbscenceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		7BC17D6623E357E800DD51CE /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		7BC17D6823E3586C00DD51CE /* Division.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Division.swift; sourceTree = "<group>"; };
 		7BC17D6A23E359B400DD51CE /* DivisionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionFactory.swift; sourceTree = "<group>"; };
+		7BFCC74A23EB04F40076DC7C /* DivisionAbscenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionAbscenceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				7BC17D6623E357E800DD51CE /* Student.swift */,
 				7BC17D6823E3586C00DD51CE /* Division.swift */,
 				7BC17D6A23E359B400DD51CE /* DivisionFactory.swift */,
+				7BFCC74A23EB04F40076DC7C /* DivisionAbscenceViewController.swift */,
 			);
 			path = AbsenceRecorder;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BC17D3B23E3562E00DD51CE /* ViewController.swift in Sources */,
+				7BFCC74B23EB04F40076DC7C /* DivisionAbscenceViewController.swift in Sources */,
 				7BC17D3723E3562E00DD51CE /* AppDelegate.swift in Sources */,
 				7BC17D6923E3586C00DD51CE /* Division.swift in Sources */,
 				7BC17D3923E3562E00DD51CE /* SceneDelegate.swift in Sources */,
