@@ -13,8 +13,8 @@ class DivisionFactory {
         let division = Division(code: code)
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/mm/yy"
-        let studentsForenames = ["Will", "Patrick", "Maheraj", "Sam", "JJ", "Oscar", "Seb"]
-        let studentsSurnames = ["Goad", "Connolly", "Ahmed", "Barnham", "Andrew", "Hassall", "Wade"]
+        let studentsForenames = ["Maheraj", "JJ", "Sam", "Patrick", "Will", "Oscar", "Seb"]
+        let studentsSurnames = ["Ahmed", "Andrew", "Barnham", "Connolly", "Goad", "Hassall", "Wade"]
         let studentsBirthdays = ["01/01/2003", "02/02/2003", "03/03/2003", "04/04/2003", "05/05/2003", "06/06/2003", "07/07/2003"]
 
         for i in 0..<size {

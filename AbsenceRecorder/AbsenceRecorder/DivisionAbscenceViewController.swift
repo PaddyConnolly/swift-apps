@@ -11,9 +11,16 @@ import UIKit
 class DivisionAbscenceViewController: UITableViewController {
     
     var division: Division?
+    var abscence: Abscence?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let selectedRows = abscence?.selectedRows {
+          for selectedRow in selectedRows {
+            tableView.selectRow(at: selectedRow, animated: false, scrollPosition: .none)
+          }
+        }
 
 
     }
@@ -26,8 +33,26 @@ class DivisionAbscenceViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Student", for: indexPath)
         
         cell.textLabel?.text = division?.students[indexPath.row].surname
-        
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      if let selectedStudent = division?.students[indexPath.row] {
+        abscence?.present.append(selectedStudent)
+      }
+
+    }
+
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+      if let selectedStudent = division?.students[indexPath.row] {
+        abscence?.present.removeAll {
+          $0.forename == selectedStudent.forename && $0.surname == selectedStudent.surname
+      }
+      }
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+      abscence?.selectedRows = tableView.indexPathsForSelectedRows
     }
 
 }

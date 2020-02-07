@@ -64,7 +64,18 @@ class ViewController: UITableViewController {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "DivisionAbscenceViewController" ) as? DivisionAbscenceViewController else {
                 fatalError("Failed to load Division Abscence View Controller from Storyboard")
         }
-        vc.division = divisions[indexPath.row]
+
+        let selectedDivision = divisions[indexPath.row]
+
+        if let existingAbscence = selectedDivision.getAbscence(for: currentDate) {
+          vc.abscence = existingAbscence
+        } else {
+          let newAbscence = Abscence(date: currentDate)
+          selectedDivision.abscences.append(newAbscence)
+          vc.abscence = newAbscence
+        }
+
+        vc.division = selectedDivision
         
         navigationController?.pushViewController(vc, animated: true)
     }

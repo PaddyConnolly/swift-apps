@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B83512F23EDA78E00A9547A /* StudentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B83512E23EDA78E00A9547A /* StudentCell.swift */; };
+		7B83513123EDA7C100A9547A /* Abscence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B83513023EDA7C100A9547A /* Abscence.swift */; };
 		7BC17D3723E3562E00DD51CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC17D3623E3562E00DD51CE /* AppDelegate.swift */; };
 		7BC17D3923E3562E00DD51CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC17D3823E3562E00DD51CE /* SceneDelegate.swift */; };
 		7BC17D3B23E3562E00DD51CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC17D3A23E3562E00DD51CE /* ViewController.swift */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B83512E23EDA78E00A9547A /* StudentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCell.swift; sourceTree = "<group>"; };
+		7B83513023EDA7C100A9547A /* Abscence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Abscence.swift; sourceTree = "<group>"; };
 		7BC17D3323E3562E00DD51CE /* AbsenceRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AbsenceRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC17D3623E3562E00DD51CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7BC17D3823E3562E00DD51CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +122,8 @@
 				7BC17D6823E3586C00DD51CE /* Division.swift */,
 				7BC17D6A23E359B400DD51CE /* DivisionFactory.swift */,
 				7BFCC74A23EB04F40076DC7C /* DivisionAbscenceViewController.swift */,
+				7B83512E23EDA78E00A9547A /* StudentCell.swift */,
+				7B83513023EDA7C100A9547A /* Abscence.swift */,
 			);
 			path = AbsenceRecorder;
 			sourceTree = "<group>";
@@ -274,9 +280,11 @@
 				7BC17D3B23E3562E00DD51CE /* ViewController.swift in Sources */,
 				7BFCC74B23EB04F40076DC7C /* DivisionAbscenceViewController.swift in Sources */,
 				7BC17D3723E3562E00DD51CE /* AppDelegate.swift in Sources */,
+				7B83512F23EDA78E00A9547A /* StudentCell.swift in Sources */,
 				7BC17D6923E3586C00DD51CE /* Division.swift in Sources */,
 				7BC17D3923E3562E00DD51CE /* SceneDelegate.swift in Sources */,
 				7BC17D6723E357E800DD51CE /* Student.swift in Sources */,
+				7B83513123EDA7C100A9547A /* Abscence.swift in Sources */,
 				7BC17D6B23E359B400DD51CE /* DivisionFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
