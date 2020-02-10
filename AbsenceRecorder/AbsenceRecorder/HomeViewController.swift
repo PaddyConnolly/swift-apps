@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UITableViewController {
+class HomeViewController: UITableViewController {
     
     var divisions: [Division] = []
     var currentDate: Date = Date()
@@ -27,6 +27,7 @@ class ViewController: UITableViewController {
             }
         }
         
+        checkCompleted()
         updateDateDisplay()
     }
     
@@ -61,29 +62,39 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "DivisionAbscenceViewController" ) as? DivisionAbscenceViewController else {
-                fatalError("Failed to load Division Abscence View Controller from Storyboard")
-        }
+
+ 
 
         let selectedDivision = divisions[indexPath.row]
+        
+        var abscence: Abscence = Abscence(date: currentDate)
 
         if let existingAbscence = selectedDivision.getAbscence(for: currentDate) {
-          vc.abscence = existingAbscence
+            abscence = existingAbscence
         } else {
-          let newAbscence = Abscence(date: currentDate)
-          selectedDivision.abscences.append(newAbscence)
-          vc.abscence = newAbscence
+          selectedDivision.abscences.append(abscence)
         }
-
+        
+        guard let vc = storyboard?.instantiateViewController(identifier: "DivisionAbscenceViewController", creator: { coder in
+         return DivisionAbscenceViewController(coder: coder, division: selectedDivision, abscence: abscence)
+        }) else {
+         fatalError("Failed to load Division Abscence View Controller from Storyboard")
+        }
+        
         vc.division = selectedDivision
         
         navigationController?.pushViewController(vc, animated: true)
     }
+
+    
+    func checkCompleted() {
+
+    }
         
     func addData() {
-        divisions.append(DivisionFactory.createDivision(code: "BY-1", of: 7))
-        divisions.append(DivisionFactory.createDivision(code: "CX-1", of: 7))
-        divisions.append(DivisionFactory.createDivision(code: "CW-1", of: 7))
+        divisions.append(DivisionFactory.createDivision(code: "vBY-1", of: 7))
+        divisions.append(DivisionFactory.createDivision(code: "vCZ-1", of: 7))
+        divisions.append(DivisionFactory.createDivision(code: "vCW-1", of: 7))
     }
 
 }
