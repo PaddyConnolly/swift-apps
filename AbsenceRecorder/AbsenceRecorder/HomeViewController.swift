@@ -18,20 +18,42 @@ class HomeViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         addData()
-        for division in divisions {
-            print(division.code)
-            for student in division.students {
-                print("\(student.forename) \(student.surname)")
-            }
-        }
-     
         updateDateDisplay()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         tableView.reloadData()
+    }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let allPresent = UIContextualAction(style: .normal, title: "Mark all Present") { action, view,
+            completionHandler in
+            let division = self.divisions[indexPath.row]
+            let absence = Absence(date: self.currentDate, present: division.students)
+            division.absences.append(absence)
+            tableView.reloadData()
+            completionHandler(true)
+
+        }
+        
+        allPresent.backgroundColor = UIColor.blue
+        return UISwipeActionsConfiguration(actions: [allPresent])
+    }
+   
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    
+        let clearAbsence = UIContextualAction(style: .normal, title: "Clear") { action, view,
+            completionHandler in
+            let division = self.divisions[indexPath.row]
+            division.absences[indexPath.row].present.removeAll()
+            tableView.reloadData()
+            completionHandler(true)
+
+        }
+        
+        clearAbsence.backgroundColor = UIColor.red
+        return UISwipeActionsConfiguration(actions: [clearAbsence])
     }
     
     @IBAction func previousDay(_ sender: Any) {
@@ -60,10 +82,8 @@ class HomeViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Division", for: indexPath)
         let selectedDivision = divisions[indexPath.row]
         cell.textLabel?.text = selectedDivision.code
-        if selectedDivision.getAbsence(for: currentDate) != nil {
-            cell.accessoryType = .checkmark
-
-        }
+        cell.accessoryType = selectedDivision.getAbsence(for: currentDate) == nil ? .none : .checkmark
+            
         
         return cell
     }
@@ -83,7 +103,7 @@ class HomeViewController: UITableViewController {
         }
         
         guard let vc = storyboard?.instantiateViewController(identifier: "DivisionAbscenceViewController", creator: { coder in
-         return DivisionAbscenceViewController(coder: coder, division: selectedDivision, absence: absence)
+         return DivisionAbsenceViewController(coder: coder, division: selectedDivision, absence: absence)
         }) else {
          fatalError("Failed to load Division Abscence View Controller from Storyboard")
         }

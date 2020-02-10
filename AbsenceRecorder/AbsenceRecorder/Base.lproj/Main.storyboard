@@ -56,10 +56,10 @@
             </objects>
             <point key="canvasLocation" x="1952.1739130434785" y="112.5"/>
         </scene>
-        <!--Division Abscence View Controller-->
+        <!--Division Absence View Controller-->
         <scene sceneID="MJ9-qp-Iz8">
             <objects>
-                <tableViewController storyboardIdentifier="DivisionAbscenceViewController" id="v0A-Qf-Due" customClass="DivisionAbscenceViewController" customModule="AbsenceRecorder" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DivisionAbscenceViewController" id="v0A-Qf-Due" customClass="DivisionAbsenceViewController" customModule="AbsenceRecorder" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="a3B-s8-vyU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

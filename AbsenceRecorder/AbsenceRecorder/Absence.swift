@@ -9,12 +9,15 @@
 import Foundation
 
 class Absence {
-  var takenOn: Date
-  var present: [Student] = []
-  var selectedRows: [IndexPath]?
+    var takenOn: Date
+    var present: [Student] = []
 
-  init(date: Date) {
-    takenOn = date
-  }
+    init(date: Date) {
+        takenOn = date
+    }
   
+    init(date: Date, present: [Student]) {
+        takenOn = date
+        self.present = present
+    }
 }
