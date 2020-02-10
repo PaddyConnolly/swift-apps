@@ -11,12 +11,12 @@ import UIKit
 class DivisionAbscenceViewController: UITableViewController {
     
     var division: Division
-    var abscence: Abscence
+    var absence: Absence
     
-    init?(coder: NSCoder, division: Division, abscence: Abscence) {
+    init?(coder: NSCoder, division: Division, absence: Absence) {
     
         self.division = division
-        self.abscence = abscence
+        self.absence = absence
         super.init(coder: coder)
     }
     
@@ -27,7 +27,7 @@ class DivisionAbscenceViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = division.code
-        if let selectedRows = abscence.selectedRows {
+        if let selectedRows = absence.selectedRows {
           for selectedRow in selectedRows {
             tableView.selectRow(at: selectedRow, animated: false, scrollPosition: .none)
           }
@@ -51,21 +51,21 @@ class DivisionAbscenceViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedStudent = division.students[indexPath.row]
-        abscence.present.append(selectedStudent)
+        absence.present.append(selectedStudent)
     
 
     }
 
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let selectedStudent = division.students[indexPath.row]
-        abscence.present.removeAll {
+        absence.present.removeAll {
             $0.forename == selectedStudent.forename && $0.surname == selectedStudent.surname
         }
       
     }
 
     override func viewDidDisappear(_ animated: Bool) {
-      abscence.selectedRows = tableView.indexPathsForSelectedRows
+      absence.selectedRows = tableView.indexPathsForSelectedRows
     }
 
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Abscence {
+class Absence {
   var takenOn: Date
   var present: [Student] = []
   var selectedRows: [IndexPath]?

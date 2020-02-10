@@ -26,9 +26,12 @@ class HomeViewController: UITableViewController {
                 print("\(student.forename) \(student.surname)")
             }
         }
-        
-        checkCompleted()
+     
         updateDateDisplay()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
     
     @IBAction func previousDay(_ sender: Any) {
@@ -55,8 +58,12 @@ class HomeViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Division", for: indexPath)
-        
-        cell.textLabel?.text = divisions[indexPath.row].code
+        let selectedDivision = divisions[indexPath.row]
+        cell.textLabel?.text = selectedDivision.code
+        if selectedDivision.getAbsence(for: currentDate) != nil {
+            cell.accessoryType = .checkmark
+
+        }
         
         return cell
     }
@@ -67,16 +74,16 @@ class HomeViewController: UITableViewController {
 
         let selectedDivision = divisions[indexPath.row]
         
-        var abscence: Abscence = Abscence(date: currentDate)
+        var absence: Absence = Absence(date: currentDate)
 
-        if let existingAbscence = selectedDivision.getAbscence(for: currentDate) {
-            abscence = existingAbscence
+        if let existingAbsence = selectedDivision.getAbsence(for: currentDate) {
+            absence = existingAbsence
         } else {
-          selectedDivision.abscences.append(abscence)
+          selectedDivision.absences.append(absence)
         }
         
         guard let vc = storyboard?.instantiateViewController(identifier: "DivisionAbscenceViewController", creator: { coder in
-         return DivisionAbscenceViewController(coder: coder, division: selectedDivision, abscence: abscence)
+         return DivisionAbscenceViewController(coder: coder, division: selectedDivision, absence: absence)
         }) else {
          fatalError("Failed to load Division Abscence View Controller from Storyboard")
         }
@@ -87,9 +94,7 @@ class HomeViewController: UITableViewController {
     }
 
     
-    func checkCompleted() {
 
-    }
         
     func addData() {
         divisions.append(DivisionFactory.createDivision(code: "vBY-1", of: 7))

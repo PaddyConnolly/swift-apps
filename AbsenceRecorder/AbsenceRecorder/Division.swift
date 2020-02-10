@@ -11,14 +11,14 @@ import Foundation
 class Division {
     let code: String
     var students: [Student] = []
-    var abscences: [Abscence] = []
+    var absences: [Absence] = []
     
     init(code: String) {
         self.code = code
     }
     
-    func getAbscence(for date: Date) -> Abscence? {
-       return abscences.first { $0.takenOn == date }
+    func getAbsence(for date: Date) -> Absence? {
+       return absences.first { $0.takenOn == date }
     }
     
 }
