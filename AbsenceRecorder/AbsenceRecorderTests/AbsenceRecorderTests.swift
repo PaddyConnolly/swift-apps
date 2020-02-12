@@ -11,24 +11,21 @@ import XCTest
 
 class AbsenceRecorderTests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testTwoAbsences() {
+        //arrange
+        let newDivision = Division(code: "XDXD")
+        let absence = Absence(date: Date())
+        absence.present = [Student(forename: "y", surname: "u", birthday: Date())]
+        let absence2 = Absence(date: Date())
+        absence2.present = [Student(forename: "u", surname: "n", birthday: Date())]
+        newDivision.absences.append(absence)
+        newDivision.absences.append(absence2)
+        //act
+        let expected = absence2
+        let actual = newDivision.getAbsence(for: Date())
+        //assert
+        XCTAssertEqual(expected, actual)
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
 
 }

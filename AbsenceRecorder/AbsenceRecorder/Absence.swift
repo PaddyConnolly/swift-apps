@@ -8,7 +8,11 @@
 
 import Foundation
 
-class Absence {
+class Absence: Equatable {
+    static func == (lhs: Absence, rhs: Absence) -> Bool {
+        <#code#>
+    }
+    
     var takenOn: Date
     var present: [Student] = []
 

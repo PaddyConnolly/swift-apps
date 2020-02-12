@@ -19,7 +19,7 @@ class Division {
     
     func getAbsence(for date: Date) -> Absence? {
         print(absences)
-       return absences.last { $0.takenOn == date }
+       return absences.first { $0.takenOn == date } // If absence was taken on current date, return an absence, otherwise return nil
     }
     
 }
