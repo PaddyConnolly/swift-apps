@@ -17,8 +17,8 @@
 		7B0A6D8B23F2CFFE008A5013 /* CommentCardWriterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0A6D8A23F2CFFE008A5013 /* CommentCardWriterUITests.swift */; };
 		7B0A6D9923F2D5A8008A5013 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0A6D9823F2D5A8008A5013 /* HomeViewController.swift */; };
 		7B0A6D9B23F2D5D9008A5013 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0A6D9A23F2D5D9008A5013 /* Comment.swift */; };
-		7B0A6D9D23F2D664008A5013 /* StudentEvaluation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0A6D9C23F2D664008A5013 /* StudentEvaluation.swift */; };
 		7B0A6D9F23F2D7CE008A5013 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0A6D9E23F2D7CE008A5013 /* Student.swift */; };
+		7B0BAF0524054640009B5588 /* StudentEvaluationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0BAF0424054640009B5588 /* StudentEvaluationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,8 +55,8 @@
 		7B0A6D8C23F2CFFE008A5013 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B0A6D9823F2D5A8008A5013 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7B0A6D9A23F2D5D9008A5013 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
-		7B0A6D9C23F2D664008A5013 /* StudentEvaluation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentEvaluation.swift; sourceTree = "<group>"; };
 		7B0A6D9E23F2D7CE008A5013 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		7B0BAF0424054640009B5588 /* StudentEvaluationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentEvaluationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,8 +116,8 @@
 				7B0A6D7323F2CFFD008A5013 /* LaunchScreen.storyboard */,
 				7B0A6D7623F2CFFD008A5013 /* Info.plist */,
 				7B0A6D9A23F2D5D9008A5013 /* Comment.swift */,
-				7B0A6D9C23F2D664008A5013 /* StudentEvaluation.swift */,
 				7B0A6D9E23F2D7CE008A5013 /* Student.swift */,
+				7B0BAF0424054640009B5588 /* StudentEvaluationViewController.swift */,
 			);
 			path = CommentCardWriter;
 			sourceTree = "<group>";
@@ -277,7 +277,7 @@
 				7B0A6D6B23F2CFFC008A5013 /* SceneDelegate.swift in Sources */,
 				7B0A6D9923F2D5A8008A5013 /* HomeViewController.swift in Sources */,
 				7B0A6D9F23F2D7CE008A5013 /* Student.swift in Sources */,
-				7B0A6D9D23F2D664008A5013 /* StudentEvaluation.swift in Sources */,
+				7B0BAF0524054640009B5588 /* StudentEvaluationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

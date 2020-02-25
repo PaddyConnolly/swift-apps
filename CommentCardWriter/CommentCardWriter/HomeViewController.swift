@@ -15,7 +15,7 @@ class HomeViewController: UITableViewController {
 
     }
     
-    var student = Student(name: "Patrick", subjects: ["Pure Maths", "Applied Maths", "Computer Science", "Micro Economics", "Macro Economics"], teachers: ["CKSP", "JM", "DPC", "WGJA", "GBR"])
+    var student = Student(name: "Patrick", subjectTeacherDict: ["Pure Maths": "CKSP", "Applied Maths": "JM", "Computer Science": "DPC", "Micro Economics": "WGJA", "Macro Economics": "GBR"], yearGroup: 12)
     
     override func viewDidAppear(_ animated: Bool) {
         tableView.reloadData()
@@ -23,7 +23,7 @@ class HomeViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return student.subjects.count
+        return student.subjectTeacherDict.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -36,7 +36,17 @@ class HomeViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        <#code#>
+        let selectedSubject = student.subjects[indexPath.row]
+        
+        guard let vc = storyboard?.instantiateViewController(identifier: "StudentEvaluationViewController", creator: { coder in
+            return StudentEvaluationViewController(coder: coder, student: self.student, subject: selectedSubject)
+        }) else {
+         fatalError("Failed to load Student Evaluation View Controller from Storyboard")
+        }
+        
+        
+        navigationController?.pushViewController(vc, animated: true)
+        
     }
 
 }

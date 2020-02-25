@@ -10,7 +10,10 @@ import Foundation
 
 class Absence: Equatable {
     static func == (lhs: Absence, rhs: Absence) -> Bool {
-        <#code#>
+        if lhs.takenOn == rhs.takenOn && lhs.present == rhs.present {
+            return true
+        }
+        return false
     }
     
     var takenOn: Date

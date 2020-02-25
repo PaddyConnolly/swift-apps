@@ -11,8 +11,4 @@ import XCTest
 
 class CommentCardWriterTests: XCTestCase {
 
-    func testStudentAndTeacherArraysLineUp() {
-        
-    }
-
 }
