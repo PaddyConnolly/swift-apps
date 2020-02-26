@@ -17,9 +17,14 @@ class Division {
         self.code = code
     }
     
-    func getAbsence(for date: Date) -> Absence? {
-        print(absences)
-       return absences.first { $0.takenOn == date } // If absence was taken on current date, return an absence, otherwise return nil
+    func getAbsence(for date: Date) -> Absence? { // Chocolate Bar Winner?
+        var todaysAbsences: [Absence] = []
+        for absence in absences {
+            if Calendar.current.isDate(absence.takenOn, inSameDayAs: date) {
+                todaysAbsences.append(absence)
+            }
+        }
+        return todaysAbsences.last
     }
     
 }
