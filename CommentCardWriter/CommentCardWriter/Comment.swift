@@ -13,12 +13,13 @@ class Comment {
     let teacherName: String
     let subject: String
     let characterCount: Int
-    var content: String = ""
+    var content: String
     
-    init(teacherName: String, subject: String, characterCount: Int) {
+    init(teacherName: String, subject: String, characterCount: Int, content: String) {
         self.teacherName = teacherName
         self.subject = subject
         self.characterCount = characterCount
+        self.content = content
     }
     
 }

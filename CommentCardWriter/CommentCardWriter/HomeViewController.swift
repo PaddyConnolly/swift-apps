@@ -15,7 +15,7 @@ class HomeViewController: UITableViewController {
 
     }
     
-    var student = Student(name: "Patrick", subjectTeacherDict: ["Pure Maths": "CKSP", "Applied Maths": "JM", "Computer Science": "DPC", "Micro Economics": "WGJA", "Macro Economics": "GBR"], yearGroup: 12)
+    var student = Student(name: "Patrick", subjectTeacherDict: ["Pure Maths": "CKSP", "Applied Maths": "JM", "Computer Science": "DPC", "Micro Economics": "WGJA", "Macro Economics": "GBR"], yearGroup: 11)
     
     override func viewDidAppear(_ animated: Bool) {
         tableView.reloadData()
