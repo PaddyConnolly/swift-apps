@@ -17,6 +17,7 @@ class HomeViewController: UITableViewController {
         super.viewDidLoad()
         addData()
         updateDateDisplay()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -139,7 +140,7 @@ class HomeViewController: UITableViewController {
     }
     
     func saveDataToFile() {
-        guard let divisionsJson =  convertDivisionsToJson() else {
+        guard let divisionsJson = convertDivisionsToJson() else {
             return
         }
         
