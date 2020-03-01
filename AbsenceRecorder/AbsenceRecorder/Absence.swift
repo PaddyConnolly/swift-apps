@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Absence: Equatable {
+class Absence: Equatable, Codable {
     static func == (lhs: Absence, rhs: Absence) -> Bool {
         if lhs.takenOn == rhs.takenOn && lhs.present == rhs.present {
             return true
