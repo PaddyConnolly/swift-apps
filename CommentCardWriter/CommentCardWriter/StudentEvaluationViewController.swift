@@ -45,10 +45,11 @@ class StudentEvaluationViewController: UIViewController {
     @IBAction func generate(_ sender: Any) {
         
         let enjoymentWords = ["hating", "not really enjoying", "OK with", "enjoying", "loving"]
-        let attainmentWords = ["no progress", "some progress", "progress", "good progress", "great progress"]
+        let attainmentWords = ["no progress", "a small amount of progress", "progress", "good progress", "great progress"]
         let difficultyWords = ["very hard", "hard", "alright", "relatively easy", "easy"]
         let topics = [topicToImprove1.text, topicToImprove2.text]
-        
+        var topicsPhrase = "aaa"
+        let optionalPhrase = "Overall I think that I am working hard in \(subject)"
         
         var maxCharacterCount: Int
         
@@ -57,11 +58,24 @@ class StudentEvaluationViewController: UIViewController {
             
         } else {
             maxCharacterCount = 250
-            content = "At the moment, I am \(enjoymentWords[Int(enjoymentSlider.value)]) \(subject). I think that I am making \(attainmentWords[Int(attainmentSlider.value)]), and I'm finding the work \(difficultyWords[Int(difficultySlider.value)]). I feel like I could improve in the topics of \(topics[0]!) and \(topics[1]!). Overall I think that I am working hard in \(subject)"
-            characterCountLabel.text = "Character Count: \(content.count)"
+            if topics[0] == "" && topics[1] == "" {
+                topicsPhrase = "I don't think I have any particular topics to work on."
+            } else if topics[0] != "" && topics[1] == "" {
+                topicsPhrase = "I think that I could definitely improve in \(topics[0]!), but I can't really think of anything else."
+            } else if topics[0] == "" && topics[1] != "" {
+                topicsPhrase = "I think that I could definitely improve in \(topics[1]!), but I can't really think of anything else."
+            } else {
+                topicsPhrase = "I think that I could definitely improve in \(topics[0]!) and \(topics[1]!)."
+            }
+            content = "At the moment, I am \(enjoymentWords[Int(enjoymentSlider.value)]) \(subject) with \(dict[subject]!). I think that I am making \(attainmentWords[Int(attainmentSlider.value)]), and I'm finding the work \(difficultyWords[Int(difficultySlider.value)]). \(topicsPhrase) "
+            
             if content.count > maxCharacterCount {
                 content = "Comment too long, please enter less topics."
+            } else if content.count <= maxCharacterCount - optionalPhrase.count {
+                content = content + optionalPhrase
             }
+            characterCountLabel.text = "Character Count: \(content.count)"
+
         }
         
         let comment = Comment(teacherName: dict[subject]!, subject: subject, characterCount: maxCharacterCount, content: content)
