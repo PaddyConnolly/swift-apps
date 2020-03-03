@@ -10,5 +10,6 @@ import XCTest
 @testable import CommentCardWriter
 
 class CommentCardWriterTests: XCTestCase {
+    
 
 }

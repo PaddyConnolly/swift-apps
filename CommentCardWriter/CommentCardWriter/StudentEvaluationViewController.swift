@@ -9,6 +9,8 @@
 import UIKit
  
 class StudentEvaluationViewController: UIViewController {
+    
+    // Outlets
     @IBOutlet var topicToImprove2: UITextField!
     @IBOutlet var topicToImprove1: UITextField!
     @IBOutlet var commentLabel: UILabel!
@@ -18,6 +20,7 @@ class StudentEvaluationViewController: UIViewController {
     @IBOutlet var difficultySlider: UISlider!
     @IBOutlet var generateButton: UIButton!
     @IBOutlet var characterCountLabel: UILabel!
+    
     
     var subject: String
     var dict: [String: String]
@@ -81,5 +84,10 @@ class StudentEvaluationViewController: UIViewController {
         let comment = Comment(teacherName: dict[subject]!, subject: subject, characterCount: maxCharacterCount, content: content)
         commentLabel.text = comment.content
         
+    }
+    
+    @IBAction func copyToClipboard(_ sender: Any) {
+        let pasteboard = UIPasteboard.general
+        pasteboard.string = commentLabel.text
     }
 }
