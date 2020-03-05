@@ -26,7 +26,6 @@ class ITunesAdaptor {
         }
         
         let request = URLRequest(url: url)
-        
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let data = data {
                 if let response = self.parseJson(json: data) {
@@ -39,7 +38,7 @@ class ITunesAdaptor {
     }
     
     func parseJson(json: Data) -> ArtistResponse? {
-        if let artistResponse = try? decoder.decode(ArtistResponse.self, from: json) {
+        if let artistResponse = try? decoder.decode(ArtistResponse.self, from: json) { // This fails...
             return artistResponse
         } else {
             print("Failed to decode to Artist Response")

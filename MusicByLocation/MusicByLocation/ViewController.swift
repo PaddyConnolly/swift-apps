@@ -14,7 +14,6 @@ import CoreLocation
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
-    let geocoder = CLGeocoder()
     let iTunesAdaptor = ITunesAdaptor()
     let locationManagerDelegate = LocationManagerDelegate()
 
