@@ -23,4 +23,8 @@ struct Stack {
         return stack.removeLast()
     }
     
+    mutating func count() -> Int {
+        return stack.count
+    }
+    
 }

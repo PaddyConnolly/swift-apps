@@ -24,7 +24,32 @@ class ViewController: UIViewController {
         }
     }
     
-    var calculation = Stack(stack: [])
+    func eval(item: String) -> String {
+        let result = NSExpression(format: item).expressionValue(with: nil, context: nil) as! Int
+        return "\(result)"
+    }
+
+    
+    func calculate(input: [String]) -> String {
+        while RPN_stack.count() != 1 {
+            for item in input {
+                if Int(item) != nil {
+                    RPN_stack.push(value: item)
+                } else {
+                    let b = RPN_stack.pop()
+                    let a = RPN_stack.pop()
+                    let equation = a + item + b
+                    RPN_stack.push(value: eval(item: equation))
+                }
+            }
+        }
+        
+        return RPN_stack.pop()
+            
+    }
+    
+    var calculation: [String] = []
+    var RPN_stack = Stack(stack: [])
     var operand: [String] = []
 
     @IBAction func zeroButton(_ sender: Any) {
@@ -69,26 +94,33 @@ class ViewController: UIViewController {
     }
     @IBAction func plusButton(_ sender: Any) {
         updateDisplay(value: "+")
+        operand.append("+")
     }
     @IBAction func minusButton(_ sender: Any) {
         updateDisplay(value: "-")
+        operand.append("+")
     }
     @IBAction func multiplyButton(_ sender: Any) {
         updateDisplay(value: "*")
+        operand.append("*")
     }
     @IBAction func divideButton(_ sender: Any) {
         updateDisplay(value: "/")
+        operand.append("/")
     }
     @IBAction func clearButton(_ sender: Any) {
         textDisplay.text = ""
+        operand = []
     }
     @IBAction func enterButton(_ sender: Any) {
-        calculation.push(value: operand.joined(separator: ""))
+        calculation.append(operand.joined(separator: ""))
         operand = []
         updateDisplay(value: " ")
     }
     @IBAction func endButton(_ sender: Any) {
-        
+        textDisplay.text = ""
+        updateDisplay(value: calculate(input: calculation))
+        calculation = []
     }
     
     
