@@ -10,34 +10,29 @@ import XCTest
 
 class RPNCalculatorUITests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() {
-        // UI tests must launch the application that they test.
+    func testAllCharacterButtonsUpdateDisplay() {
         let app = XCUIApplication()
         app.launch()
+        
+        app.buttons["one"].tap()
+        app.buttons["two"].tap()
+        app.buttons["three"].tap()
+        app.buttons["four"].tap()
+        app.buttons["five"].tap()
+        app.buttons["six"].tap()
+        app.buttons["seven"].tap()
+        app.buttons["eight"].tap()
+        app.buttons["nine"].tap()
+        app.buttons["zero"].tap()
+        app.buttons["plus"].tap()
+        app.buttons["minus"].tap()
+        app.buttons["multiply"].tap()
+        app.buttons["divide"].tap()
+        
+        let actual = app.staticTexts["display"].label
+        let expected = "1234567890+-*/"
+        XCTAssertEqual(actual, expected)
 
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testLaunchPerformance() {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTOSSignpostMetric.applicationLaunch]) {
-                XCUIApplication().launch()
-            }
-        }
+        
     }
 }

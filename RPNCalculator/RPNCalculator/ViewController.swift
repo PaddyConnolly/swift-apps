@@ -9,6 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    //TODO:
+    // UI and Unit tests
+    // The arithmetic operator buttons should also signal to the calculator that the user has finished entering an operand
 
     @IBOutlet var textDisplay: UILabel!
     override func viewDidLoad() {
@@ -16,7 +20,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func updateDisplay(value: String) {
+    func updateDisplay(value: String) { // Appends the argument to the current value of the display unless the display is empty, in which case the argument becomes the display's value
         if let input = textDisplay.text {
             textDisplay.text = input + value
         } else {
@@ -24,13 +28,13 @@ class ViewController: UIViewController {
         }
     }
     
-    func eval(item: String) -> String {
+    func eval(item: String) -> String { // Takes a string and produces the mathematical output
         let result = NSExpression(format: item).expressionValue(with: nil, context: nil) as! Int
         return "\(result)"
     }
 
     
-    func calculate(input: [String]) -> String {
+    func calculate(input: [String]) -> String { // Uses a stack implementation to perform RPN calculations
         while RPN_stack.count() != 1 {
             for item in input {
                 if Int(item) != nil {
@@ -41,18 +45,18 @@ class ViewController: UIViewController {
                     let equation = a + item + b
                     RPN_stack.push(value: eval(item: equation))
                 }
-            }
+          }
         }
         
         return RPN_stack.pop()
             
     }
     
-    var calculation: [String] = []
-    var RPN_stack = Stack(stack: [])
-    var operand: [String] = []
+    var calculation: [String] = [] // Holds the operands
+    var RPN_stack = Stack(stack: []) // Holds the operands in a stack for calculations
+    var operand: [String] = [] // Holds the digits of the current operand
 
-    @IBAction func zeroButton(_ sender: Any) {
+    @IBAction func zeroButton(_ sender: Any) { // These make a digit appear on the display when the button is pressed
         updateDisplay(value: "0")
         operand.append("0")
     }
@@ -98,7 +102,7 @@ class ViewController: UIViewController {
     }
     @IBAction func minusButton(_ sender: Any) {
         updateDisplay(value: "-")
-        operand.append("+")
+        operand.append("-")
     }
     @IBAction func multiplyButton(_ sender: Any) {
         updateDisplay(value: "*")
@@ -108,20 +112,74 @@ class ViewController: UIViewController {
         updateDisplay(value: "/")
         operand.append("/")
     }
-    @IBAction func clearButton(_ sender: Any) {
+    @IBAction func clearButton(_ sender: Any) { // Clears display and the current operand and calculation
         textDisplay.text = ""
         operand = []
+        calculation = []
     }
-    @IBAction func enterButton(_ sender: Any) {
+    @IBAction func enterButton(_ sender: Any) { // Validates the operand input and saves it as part of the calculation. Also adds a space
+        var hasNum = false
+        var hasOperator = false
+        let numbers = ["1","2", "3", "4", "5", "6", "7", "8", "9", "0", "-"]
+        for char in operand {
+            if numbers.contains(char) {
+                hasNum = true
+            } else {
+                hasOperator = true
+            }
+        }
+        if hasNum && hasOperator {
+            textDisplay.text = "Invalid operand"
+            operand = []
+            calculation = []
+            return
+        }
+        if operand.contains("-") && operand[0] != "-" {
+            textDisplay.text = "Invalid operand"
+            operand = []
+            calculation = []
+            return
+        }
+        if operand.count > 4 {
+            textDisplay.text = "Invalid operand"
+            operand = []
+            calculation = []
+            return
+        }
+        if hasOperator == false {
+            print("o")
+            print(operand)
+            print("o")
+            if Int(operand.joined())! < -999 || Int(operand.joined())! > 999 {
+                textDisplay.text = "Invalid operand"
+                operand = []
+                calculation = []
+                return
+            }
+    
+        }
         calculation.append(operand.joined(separator: ""))
         operand = []
         updateDisplay(value: " ")
+        
     }
-    @IBAction func endButton(_ sender: Any) {
+    @IBAction func endButton(_ sender: Any) { // Tells the system that the input is complete and to start calculating
         textDisplay.text = ""
         updateDisplay(value: calculate(input: calculation))
         calculation = []
     }
+    
+    @IBAction func negateButton(_ sender: Any) { // Makes the current operand negative if positive or positive if negative
+        if operand[0] == "-" {
+            operand.remove(at: 0)
+        } else {
+            operand.insert("-", at: 0)
+        }
+        textDisplay.text = ""
+        updateDisplay(value: operand.joined())
+    }
+    
+    
     
     
 }

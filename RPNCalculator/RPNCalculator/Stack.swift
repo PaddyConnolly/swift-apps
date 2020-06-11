@@ -8,17 +8,18 @@
 
 import Foundation
 
-struct Stack {
+struct Stack { // Swift stack implementation (simple)
+    
     var stack: [String]
     
     init(stack: [String]) {
         self.stack = stack
-        
     }
     
     mutating func push(value: String) {
         stack.append(value)
     }
+    
     mutating func pop() -> String {
         return stack.removeLast()
     }

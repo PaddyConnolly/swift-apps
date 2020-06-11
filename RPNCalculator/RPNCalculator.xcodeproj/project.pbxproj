@@ -16,6 +16,8 @@
 		7B3F0625248FF853009CEDDF /* RPNCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F0624248FF853009CEDDF /* RPNCalculatorTests.swift */; };
 		7B3F0630248FF853009CEDDF /* RPNCalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F062F248FF853009CEDDF /* RPNCalculatorUITests.swift */; };
 		7B3F063E249007F1009CEDDF /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F063D249007F1009CEDDF /* Stack.swift */; };
+		7B3F06432492D42A009CEDDF /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F063D249007F1009CEDDF /* Stack.swift */; };
+		7B3F06462492DBEE009CEDDF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F0611248FF852009CEDDF /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -273,6 +275,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B3F06462492DBEE009CEDDF /* ViewController.swift in Sources */,
+				7B3F06432492D42A009CEDDF /* Stack.swift in Sources */,
 				7B3F0625248FF853009CEDDF /* RPNCalculatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
