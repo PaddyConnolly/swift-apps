@@ -45,7 +45,7 @@ class ViewController: UIViewController {
     }
     
     func eval(item: String) -> String { // Takes a string and produces the mathematical output
-        let result = NSExpression(format: item).expressionValue(with: nil, context: nil) as! Int
+        let result = NSExpression(format: item).expressionValue(with: nil, context: nil) as! Int? ?? 0
         return "\(result)" // Doesn't handle bad expressions well
     }
 

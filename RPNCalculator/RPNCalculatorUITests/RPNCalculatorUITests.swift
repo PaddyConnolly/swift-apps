@@ -38,7 +38,7 @@ class RPNCalculatorUITests: XCTestCase {
 
     }
     
-    func testNegateButtonWorks() {
+    func testNegateButtonNegatesPositiveNumber() {
         let app = XCUIApplication()
         app.launch()
         
@@ -47,6 +47,20 @@ class RPNCalculatorUITests: XCTestCase {
         
         let actual = app.staticTexts["display"].label
         let expected = "-1"
+        XCTAssertEqual(actual, expected)
+    }
+    
+    func testNegateButtonMakesNegativeNumberPositive() {
+        let app = XCUIApplication()
+        app.launch()
+        
+        app.buttons["one"].tap()
+        app.buttons["negate"].tap()
+        app.buttons["negate"].tap()
+
+        
+        let actual = app.staticTexts["display"].label
+        let expected = "1"
         XCTAssertEqual(actual, expected)
     }
     
